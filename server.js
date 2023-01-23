@@ -41,7 +41,7 @@ setupSocketAPI(http)
 // so when requesting http://localhost:3030/index.html/car/123 it will still respond with
 // our SPA (single page app) (the index.html file) and allow vue-router to take it from there
 app.get('/**', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'))
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'))
 })
 
 const port = process.env.PORT || 3030
