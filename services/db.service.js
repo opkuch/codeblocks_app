@@ -12,7 +12,9 @@ var dbConn = null
 
 async function getCollection(collectionName) {
     try {
+        // Getting db from mongo via connection to client
         const db = await connect()
+        // Getting wanted collection
         const collection = await db.collection(collectionName)
         return collection
     } catch (err) {

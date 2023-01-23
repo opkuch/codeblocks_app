@@ -7,8 +7,8 @@ const http = require('http').createServer(app)
 
 // app config
 app.use(express.json())
-
 dotenv.config()
+
 if (process.env.NODE_ENV === 'production') {
   // Express serve static files on production environment
   app.use(express.static(path.join(__dirname, 'dist')))
@@ -21,11 +21,14 @@ if (process.env.NODE_ENV === 'production') {
       'http://localhost:5173',
       'http://127.0.0.1:3000',
       'http://localhost:3000',
+      'http://127.0.0.1:4000',
+      'http://localhost:4000',
     ],
     credentials: true,
   }
   app.use(cors(corsOptions))
 }
+
 // routes
 const blockRoutes = require('./api/blocks/block.routes')
 app.use('/api/blocks', blockRoutes)
@@ -44,4 +47,4 @@ app.get('/**', (req, res) => {
 const port = process.env.PORT || 3030
 
 // listen
-app.listen(port, () => console.log(`Server listening on port:${port}`))
+http.listen(port, () => console.log(`Server listening on port:${port}`))
