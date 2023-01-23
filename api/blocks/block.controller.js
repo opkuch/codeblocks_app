@@ -21,8 +21,6 @@ async function getBlockById(req, res) {
   }
 }
 
-
-
 // PUT (Update block)
 async function updateBlock(req, res) {
   try {
